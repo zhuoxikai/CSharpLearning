@@ -1,0 +1,28 @@
+﻿@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+ApplicantMRest -> ApplicantESB : MergeApplicant()
+ApplicantESB --> ApplicantESB: 应聘者状态判断
+ApplicantESB --> ApplicantESB: 应聘者加锁
+ApplicantESB --> ApplicantESB: IHandler模型
+ApplicantESB_IHandle --> ApplicantESB_IHandle: 合并应聘者个人信息
+ApplicantESB_IHandle --> ApplicantKafka: 删除被合并应聘者、发送删除kafka消息 
+'topic BeisenRecruitV6ApplicantDomainEvent
+ApplicantESB_IHandle <-- Apollo_MergeHandler: 合并应聘者、获取SyncHandlers并处理
+ApplicantESB_IHandle --> ApplicantMergeKafka: 发送合并消息
+'topic BeisenRecruitV6ApplicantMerge
+ApplicantMergeKafka --> ApplicantESB:MergeApplicantData()
+ApplicantESB <-- Apollo_MergeHandler:获取AsyncHandlers并处理
+ApplicantESB --> ApplicantMergeKafka:处理结果返回
+ApplicantMergeKafka --> ApplicantMergeKafka:MergeOtherMetaObject()
+ApplicantMergeKafka <-- Apollo_ApplicantMergeMetaObject:更新配置中对象
+ApplicantMergeKafka --> ApplicantMergeKafka:MergeExternalApplicationApplicantId()\n更新外部应用对象存了应聘者Id的对象(offer)
+
+
+
+
+
+
+@enduml

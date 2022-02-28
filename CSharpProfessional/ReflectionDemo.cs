@@ -58,13 +58,12 @@ namespace CSharpProfessional
     }
     public class ReflectionDemo
     {
-        internal static void Reflection()
+        public static void Reflection()
         {
             Student student = new Student(20, 02,DateTime.MinValue);
             student.GrowUp();
             Person person = new Person();
             Type type = typeof(Student);
-
             //获得class的每个Attribute 
             foreach (Attribute attribute in type.GetCustomAttributes(false))
             {
@@ -77,7 +76,7 @@ namespace CSharpProfessional
                 }
             }
 
-
+            
             foreach (var property in type.GetProperties())
             {
                 //这个判断不能去掉 会直接导致强转出错 抛Exception

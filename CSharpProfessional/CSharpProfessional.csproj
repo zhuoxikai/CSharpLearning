@@ -47,14 +47,54 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Beisen.AppFramework.TypeMapping, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Beisen.AppFramework.TypeMapping.1.1.0.2\lib\net45\Beisen.AppFramework.TypeMapping.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Beisen.MultiTenantV5.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Beisen.MultiTenantV5.ServiceInterface.1.1.0.2337\lib\net45\Beisen.MultiTenantV5.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Beisen.MultiTenantV5.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Beisen.MultiTenantV5.ServiceInterface.1.1.0.2337\lib\net45\Beisen.MultiTenantV5.Model.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Beisen.MultiTenantV5.ModelOperationSDK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Beisen.MultiTenantV5.ServiceInterface.1.1.0.2337\lib\net45\Beisen.MultiTenantV5.ModelOperationSDK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Beisen.MultiTenantV5.ServiceInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Beisen.MultiTenantV5.ServiceInterface.1.1.0.2337\lib\net45\Beisen.MultiTenantV5.ServiceInterface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EmitMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\EmitMapper.1.0.1\lib\net20\EmitMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppDomainTest.cs" />
     <Compile Include="AttributeDemo.cs" />
+    <Compile Include="client.cs" />
     <Compile Include="DebugMain.cs" />
+    <Compile Include="extend\Base.cs" />
+    <Compile Include="extend\BeisenUser.cs" />
+    <Compile Include="extend\User.cs" />
+    <Compile Include="Extension\Main.cs" />
+    <Compile Include="Extension\MyDTO.cs" />
+    <Compile Include="Extension\MyDTOChild.cs" />
+    <Compile Include="Extension\MyDTOExtension.cs" />
+    <Compile Include="Extension\Order.cs" />
+    <Compile Include="Extension\Set.cs" />
+    <Compile Include="factory.cs" />
     <Compile Include="GameMoves.cs" />
     <Compile Include="MultiThread.cs" />
     <Compile Include="Program.cs" />
@@ -68,6 +108,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

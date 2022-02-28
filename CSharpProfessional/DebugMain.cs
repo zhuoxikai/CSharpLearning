@@ -4,7 +4,17 @@ namespace CSharpProfessional
 {
     public class DebugMain
     {
-        public string Str { get; set; }
-        
+        private static void ValidateFilterInstance(object instance)
+        {
+            switch (instance)
+            {
+                case null:
+                    break;
+                case int _:
+                    break;
+                case long _:
+                    break;
+            }
+        }
     }
 }

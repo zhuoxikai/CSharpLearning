@@ -22,7 +22,8 @@ namespace DesignPatterns.FlexibleDuckPatterns
         static void Main()
         {
             BetterDuck duck = new MallardDuck();
-            
+            duck.PerformFly();
+            duck.PerformQuack();
         }
 
     }

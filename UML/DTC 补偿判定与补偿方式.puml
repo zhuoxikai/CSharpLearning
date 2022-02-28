@@ -1,0 +1,18 @@
+﻿@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+DiscoveryService -> Quartz: 异常服务查询方式
+Quartz -> DTCService: 获取异常服务
+DTCService -> MySQL: 根据当前时间判定超时服务
+MySQL --> DiscoveryService: 异常服务
+DiscoveryService -> Quartz: 异常处理方式
+Quartz -> CompensateService: 发送Kafka消息
+DTCService <- CompensateService: 补偿服务
+DTCService -> MySQL: 查询补偿地址
+DTCService -> DTC_Try : 发送http请求
+
+
+ 
+@enduml

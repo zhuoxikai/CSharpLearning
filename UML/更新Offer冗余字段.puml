@@ -1,0 +1,20 @@
+﻿@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+
+ 
+
+if (判断Core还是OB)) then (Core)
+  :构建批量更新实体;
+  :传入对象所需字段，更新Offer;
+
+else(OB)
+  :传入applyId和applicantId;
+  :查询应聘者信息;
+  :更新应聘者信息和applyId;
+endif
+  
+stop
+
+@enduml

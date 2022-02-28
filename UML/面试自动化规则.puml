@@ -1,0 +1,36 @@
+﻿@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:传入interviewIds;
+'#pink:遍历condition决定当前操作;
+#lightgreen:查询面试安排Ids;
+:查询面试评价(现有接口未返回面试Id);
+if (遍历condition决定当前操作) then (所有面试官评价)
+    if (遍历面试Ids) then (interviewId)
+      :查询面试对应的面试官;
+      if (遍历面试官Ids) then (interviewerId)
+        if ( 是否存在未评价\n !(evaluations.Select(x=>x.interviewId).Contains(interviewId)\n && evaluations.Select(x=>x.interviewerId).Contains(interviewerId))) then (未评价)
+          :根据判断结果condition判断是否满足;
+          :移除interviewId;
+        endif
+      endif
+    endif
+else(任意面试官评价)
+if (遍历面试Ids) then (interviewId)
+  :查询面试对应的面试官;
+  if (遍历面试官Ids) then (interviewerId)
+    if ( 是否存在未评价\n evaluations.Select(x=>x.interviewId).Contains(interviewId)\n && evaluations.Select(x=>x.interviewerId).Contains(interviewerId)) then (yes)
+      :根据判断结果condition判断是否满足;
+      :移除interviewId;
+    endif
+  endif
+endif
+endif
+:返回满足执行范围的interviewIds;
+
+
+
+stop
+
+@enduml

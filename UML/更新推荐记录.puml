@@ -1,0 +1,17 @@
+﻿@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:更新投递;
+
+:根据applyId查询投递,applicantESB;
+:过滤投递只有推荐投递;
+:根据投递Id查询推荐记录，调用mircoRecommendESB;
+:根据申请Id更新推荐记录，调用mircoRecommendESB;
+
+
+
+
+stop
+
+@enduml

@@ -1,0 +1,71 @@
+﻿@startuml
+'https://plantuml.com/class-diagram
+
+interface IPipelineBuilder
+{
+    IPipelineBuilder UsePipeline<T>(params object[] args) where T : PipelineStep;
+    
+    IPipelineBuilder IngoreAttribute<T>() where T : AOPAttribute;
+    
+    IList<Func<PipelineStepInvoker, PipelineStepInvoker>> Build();
+}
+class PipelineBuilder{
+IList<Func<PipelineStepInvoker, PipelineStepInvoker>> steps;
+
+IList<Type> ignoreAttributes;
+}
+class PipelineManager
+{
+    IPipelineBuilder _pipelineBuilder;
+    
+    public void Run(PipelineContext context, PipelineStepInput input, int startStepIndex = 0)
+}
+IPipelineBuilder <|-- PipelineBuilder
+PipelineBuilder .. PipelineManager
+
+
+interface IPipelineAOPInvoker{
+    void Before(PipelineContext context, PipelineStepInput input);
+
+    void After(PipelineContext context, PipelineStepInput input);
+}
+
+
+class PipelineAOPInvoker {
+    private IEnumerable<AOPAttribute> _attributes;
+    
+    void Before(PipelineContext context, PipelineStepInput input);
+    
+    void After(PipelineContext context, PipelineStepInput input);
+}
+
+
+class PipelineStepInvoker
+{
+    PipelineStepDelegate<PipelineStepInput, PipelineStepResult> PipelineStepDelegate { get; set; }
+
+    IPipelineAOPInvoker PipelineAOPInvoker { get; set; }
+    
+    PipelineStepResult Invoke(PipelineContext context, PipelineStepInput input)
+}
+
+IPipelineAOPInvoker <|--  PipelineAOPInvoker 
+PipelineAOPInvoker .. PipelineStepInvoker
+PipelineManager --> PipelineStepInvoker
+
+
+
+
+'interface IPipelineAOPBuilder{
+'    IPipelineAOPBuilder UseAOP(IPipelineAOPInvoker pipelineAOPInvoker);
+'    
+'    IEnumerable<IPipelineAOPInvoker> Build();
+'}
+'class PipelineAOPBuilder {
+'    private List<IPipelineAOPInvoker> _invokers;
+'}
+'IPipelineAOPBuilder <|--  PipelineAOPBuilder 
+
+
+
+@enduml

@@ -32,6 +32,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Beisen.AppFramework.TypeMapping, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Beisen.AppFramework.TypeMapping.1.1.0.2\lib\net45\Beisen.AppFramework.TypeMapping.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Beisen.MultiTenantV5.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Beisen.MultiTenantV5.ServiceInterface.1.1.0.2337\lib\net45\Beisen.MultiTenantV5.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Beisen.MultiTenantV5.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Beisen.MultiTenantV5.ServiceInterface.1.1.0.2337\lib\net45\Beisen.MultiTenantV5.Model.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Beisen.MultiTenantV5.ModelOperationSDK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Beisen.MultiTenantV5.ServiceInterface.1.1.0.2337\lib\net45\Beisen.MultiTenantV5.ModelOperationSDK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Beisen.MultiTenantV5.ServiceInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Beisen.MultiTenantV5.ServiceInterface.1.1.0.2337\lib\net45\Beisen.MultiTenantV5.ServiceInterface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,11 +66,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="demo.cs" />
+    <Compile Include="generics.cs" />
+    <Compile Include="IRecruit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticAndExtends\Father.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

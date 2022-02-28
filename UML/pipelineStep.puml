@@ -1,0 +1,64 @@
+﻿@startuml
+'https://plantuml.com/class-diagram
+
+
+
+'interface IPipelineContext
+'{
+'
+'}
+'
+'abstract class PipelineStep 
+'{
+'    PipelineStepResult Run(PipelineContext context, PipelineStepInput input);
+'}
+'
+'class ResumeFinishStep{
+'    PipelineStepResult Run(PipelineContext context, PipelineStepInput input)
+'}
+'
+'IPipelineContext <|-- PipelineStep
+'PipelineStep <|-- ResumeFinishStep
+
+abstract class AOPAttribute{
+abstract void After<TInput>(PipelineContext context, TInput input)
+
+abstract void Before<TInput>(PipelineContext context, TInput input)
+}
+
+class TranscationAspectAttribute 
+{
+public string Function { get; set; }
+
+public string NodeCode { get; set; }
+
+public string NodeName { get; set; }
+
+public bool Complete { get; set; }
+
+void After<TInput>(PipelineContext context, TInput input)
+
+void Before<TInput>(PipelineContext context, TInput input)
+}
+class TranscationContext
+{
+    public Dictionary<string, object> Properties { get; set; }
+
+    public int TenantId { get; set; }
+
+    public int UserId { get; set; }
+
+    public DateTime OnMessageTime { get; set; }
+    
+    Extension: TranscationContext ToTranscationContext(this PipelineContext pipelineContext)
+    
+    PipelineContext ToPipelineContext(this TranscationContext transcationContext)
+}
+
+
+AOPAttribute <|-- TranscationAspectAttribute
+
+
+
+
+@enduml

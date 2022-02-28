@@ -32,10 +32,19 @@ namespace DesignPatterns.FlexibleDuckPatterns
         {
             _quackBehavior.Quack();
         }
-        
+
+        public void SetPerformQuack(IQuackBehavior quackBehavior)
+        {
+            _quackBehavior = quackBehavior;
+        }
         public void PerformFly()
         {
             _flyBehavior.Fly();
+        }
+
+        public  void SetPerformFly(IFlyBehavior flyBehavior)
+        {
+            _flyBehavior = flyBehavior;
         }
 
         public virtual void Display()
