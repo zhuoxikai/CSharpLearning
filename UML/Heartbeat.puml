@@ -1,0 +1,7 @@
+﻿@startuml
+: neitui Site
+获取悬赏和积分（增加字段）;
+
+:This is on defined on
+several **lines**;
+@enduml

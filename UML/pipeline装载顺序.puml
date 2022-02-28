@@ -1,0 +1,57 @@
+﻿@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+#pink:UsePipeline<T>(args) 
+将一个步骤构建一个Invoker委托
+Func<PipelineStepInvoker, PipelineStepInvoker>;
+#pink:Use(step) 将委托add到steps中;
+#pink:pipelineManager = new PipelineManager(pipelineBuilder) 
+装载builder到manager;
+#pink: 构建context和input
+pipelineManager.Run(context, input)
+运行;
+:遍历Builder中的steps;
+:根据startStepIndex判断起始步骤;
+:执行Invoker委托,入参为null
+   1.获取step的Run方法
+   2.创建Run方法的step委托
+   3.获取Run方法的AOP特性
+   4.返回委托与特性的Invoker;
+:执行Invoker方法
+   1.执行当前步骤的AOP Before操作
+   2.执行step委托
+   3.根据Continue判断是否继续
+   4.执行当前步骤的AOP After操作;
+   
+'if (Page.onSecurityCheck) then (true)
+'  :Page.onInit();
+'  if (isForward?) then (no)
+'    :Process controls;
+'    if (continue processing?) then (no)
+'      stop
+'    endif
+'
+'    if (isPost?) then (yes)
+'      :Page.onPost();
+'    else (no)
+'      :Page.onGet();
+'    endif
+'    :Page.onRender();
+'  endif
+'else (false)
+'endif
+'
+'if (do redirect?) then (yes)
+'  :redirect process;
+'else
+'  if (do forward?) then (yes)
+'    :Forward request;
+'  else (no)
+'    :Render page template;
+'  endif
+'endif
+
+stop
+
+@enduml

@@ -1,0 +1,30 @@
+﻿@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+if (账号过期 or 失效) then (账号失效)
+:点击离职/停用;
+    if (站点 or MRest) then (站点)
+      #pink:每五分钟校验失效;
+      :失效会跳转登录页;
+     
+    else (MRest)
+      if(离职 or 停用) then (离职)
+        :平台跳转无权限友好页;
+      else (停用)
+        #palegreen:可以继续操作，产品接受;
+      endif
+    endif
+else (账号过期)
+:Cookies过期;
+    if (站点 or MRest) then (站点)
+      :每次操作校验用户信息,失效会跳转登录页 ;
+    else (MRest)
+      #pink:平台接口返回417,点击无反应.本次处理为友好提示;
+    endif
+endif
+stop
+
+
+
+@enduml

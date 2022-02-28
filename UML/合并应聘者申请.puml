@@ -1,0 +1,50 @@
+﻿@startmindmap
+'https://plantuml.com/mindmap-diagram
+
+
+title 合并应聘者申请，需要实时计算的字段 
+
+* 合并应聘者申请
+** Offer环节 26H
+
+*** 申请对象。取最近一次的offer结果 8H
+****[#lightgreen] Offer类型	ObOfferTypeID
+****[#lightgreen] Offer审批状态	OfferApprovalStatus
+****[#lightgreen] Offer创建时间	OfferCreatedTime
+****[#lightgreen] OfferId	OfferId
+****[#lightgreen] Offer状态	OfferStatus
+****[#pink] Offer所属应用类型	OfferType (不用更新，ob和core二选一)
+*** 入职管理 10H
+**** Offer对象。选择offer类型后创建 8H
+*****[#lightgreen] 应聘者ID	ApplicantId
+*****[#lightgreen] 申请渠道	ApplyChannel
+*****[#lightgreen] 申请ID	ApplyId
+*****[#lightgreen] 应聘者CID	PersonCID
+*****[#lightgreen] 姓名	Name
+*****[#lightgreen] 个人邮箱	Email
+*****[#lightgreen] 手机号码	Phone
+*****[#pink] 应聘者详情页	ApplicantElink （未存数据库,触发器计算）
+
+**** offer审批快照 2H 不更新
+
+
+*** 组织人事 需与core对接 8H
+**** Offer对象
+*****[#lightgreen] 应聘者	ApplicantId
+*****[#lightgreen] 应聘者id_LU	ApplicantIdV6
+*****[#lightgreen] 招聘申请id_LU	ApplyIdV6
+*****[#lightgreen] 申请时间	ApplyTime
+*****[#lightgreen] 个人邮箱	BackupMail 等个人信息字段...
+
+** 内外推 36H
+*** 投递Tab。通过触发器从多个投递表中获取。 16H
+**** 投递-通用 8H
+*****[#lightgreen] 应聘者ID	ApplicantId
+*****[#lightgreen] 关联申请	ApplyId
+**** 申请对象。投递相关字段 8H
+*** 微官网 8H 更新个人页申请状态
+*** 新内推 12H
+**** 推荐记录 更新最新阶段状态 4H
+****[#gray]  奖励发放规则重新计算 待确认 8H\n 产品结论：奖励与投递关联 无需处理
+
+@endmindmap

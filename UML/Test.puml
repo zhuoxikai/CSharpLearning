@@ -1,0 +1,13 @@
+﻿@startuml
+'https://plantuml.com/sequence-diagram
+
+start
+if (每十分钟校验是否绑定 ) then (Y)
+  :访问成功;
+  else (N)
+  if(每五分钟校验是否离职或停用) then (Y)
+  :跳转登录页;
+  else(N)
+  :访问成功;
+@enduml
+

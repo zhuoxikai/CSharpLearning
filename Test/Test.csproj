@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{6027C828-707F-45AB-98E2-9DF1FC6B7B61}</ProjectGuid>
+        <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>Test</RootNamespace>
+        <AssemblyName>Test</AssemblyName>
+        <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="AngleSharp, Version=0.9.9.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea">
+          <HintPath>..\packages\AngleSharp.0.9.9.2\lib\net45\AngleSharp.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="AntiXssLibrary, Version=4.0.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f">
+          <HintPath>..\packages\AntiXSSLibrary.4.0.0.0\lib\net35\AntiXSSLibrary.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Beisen.AppFSystem.ServiceInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Beisen.AppFSystem.ServiceInterface.1.1.1.1198-alpha\lib\net45\Beisen.AppFSystem.ServiceInterface.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Beisen.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Beisen.Common.1.1.0.35\lib\net45\Beisen.Common.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Beisen.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Beisen.Configuration.1.1.0.105\lib\net45\Beisen.Configuration.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Beisen.ConnectionPool, Version=1.1.0.1503, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Beisen.ConnectionPool.1.1.0.1503\lib\net45\Beisen.ConnectionPool.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Beisen.Kafka, Version=1.1.1.2085, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Beisen.Kafka.1.1.1.2085-alpha\lib\net45\Beisen.Kafka.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Beisen.Log.Trace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Beisen.Log.Trace.1.1.0.49\lib\net45\Beisen.Log.Trace.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Beisen.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Beisen.Logging.1.1.0.81\lib\net45\Beisen.Logging.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Beisen.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Beisen.Security.1.1.0.40\lib\net45\Beisen.Security.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Beisen.UserFramework.DataSource.ServiceInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Beisen.UserFramework.DataSource.ServiceInterface.1.1.1.101-alpha\lib\net45\Beisen.UserFramework.DataSource.ServiceInterface.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Beisen.ZooKeeper, Version=1.1.1.1127, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Beisen.ZooKeeper.1.1.0.1128\lib\net45\Beisen.ZooKeeper.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Ccr.Core, Version=1.5.507.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+          <HintPath>..\packages\Ccr.Core.1.5.507.0\lib\net35\Ccr.Core.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="HtmlSanitizationLibrary, Version=4.0.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f">
+          <HintPath>..\packages\HtmlSanitizationLibrary.4.0.0.0\lib\net35\HtmlSanitizationLibrary.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="HtmlSanitizer, Version=3.0.0.0, Culture=neutral, PublicKeyToken=61c49a1a9e79cc28">
+          <HintPath>..\packages\HtmlSanitizer.4.0.185\lib\net45\HtmlSanitizer.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+          <HintPath>..\packages\log4net.1.2.10.1\lib\net11\log4net.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="MySpace.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\MySpace.Shared.1.1.0.7\lib\net35\MySpace.Shared.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+          <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="PowerCollections, Version=1.0.2141.24679, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\PowerCollections.1.0.2141.24679\lib\net35\PowerCollections.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Web" />
+        <Reference Include="System.Xml" />
+        <Reference Include="Wintellect.PowerThreading, Version=1.0.2352.19171, Culture=neutral, PublicKeyToken=e7bb31f1c2166e2e">
+          <HintPath>..\packages\Wintellect.PowerThreading.1.0.0.0\lib\net35\Wintellect.PowerThreading.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c">
+            <HintPath>..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
+        </Reference>
+        <Reference Include="xunit.assert, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c">
+            <HintPath>..\packages\xunit.assert.2.1.0\lib\dotnet\xunit.assert.dll</HintPath>
+        </Reference>
+        <Reference Include="xunit.core, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c">
+            <HintPath>..\packages\xunit.extensibility.core.2.1.0\lib\dotnet\xunit.core.dll</HintPath>
+        </Reference>
+        <Reference Include="xunit.execution.desktop, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c">
+            <HintPath>..\packages\xunit.extensibility.execution.2.1.0\lib\net45\xunit.execution.desktop.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Tests.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\CSharpBasic\CSharpBasic.csproj">
+        <Project>{c04cab17-c3e1-4b9a-afe3-cd90221b7f4d}</Project>
+        <Name>CSharpBasic</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\CSharpProfessional\CSharpProfessional.csproj">
+        <Project>{6d8a29d3-aa4f-4aed-afce-917f5976a964}</Project>
+        <Name>CSharpProfessional</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\DesignPatterns\DesignPatterns.csproj">
+        <Project>{d7c06d94-8f11-41d2-855f-defe49e826ff}</Project>
+        <Name>DesignPatterns</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Kafka" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="app.config" />
+      <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="AntiXSSLibrary.xml" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+</Project>

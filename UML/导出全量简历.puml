@@ -1,0 +1,24 @@
+﻿@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:管理员填写导出信息;
+:管理员确认发起导出;
+if (校验是否可以发起导出) then (可以)
+  if(生成导出任务,生成第一个子任务) then (主流程)
+  :发送kafka消息;
+  :返回导出中的状态;
+  else(子流程)
+  :分页获取职位\人才库数据;
+  :循环职位\人才库数据;
+  
+  endif
+else (不可以)
+  
+endif
+:结束导出;
+
+
+stop
+
+@enduml

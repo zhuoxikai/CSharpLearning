@@ -1,0 +1,41 @@
+﻿@startmindmap
+'https://plantuml.com/mindmap-diagram
+
+caption 积分操作调用关系
+title 积分操作
+
+* <&flag>入口
+**[#lightgreen] UpdateBalance(ESB) 重写实时计算方法
+*** updateForRewardStatus
+**** TagStatusByIds(ESB)
+*** UpdateReferrerBounsAndIntegral 
+**** GrantPoints
+**** GrantBonus
+**** CreateGrantBonusByOther(2次)
+***[#lightgreen] AddPointsRecordUpdateReferrer 增加Redis锁
+**** EditIntegralByIds(ESB) 批量编辑
+**** EditIntegralById(ESB) 列表编辑
+
+** GetBonusPointsById(ESB) 详情页触发器调用 修改触发器脚本
+***[#red] UpdateBalance(ESB) redis:false
+*** ExternalProvider.GetBonusPointsByReferrerUserId redis:true
+*** GetReferrerById
+**** ShareSubmissionProvider.GetPageData(ESB)
+**** PointsRecordProvider.Add
+**** BonusRecordProvider.Add
+**** ReferrerProvider.GetRefereeIdByCode(ESB)
+
+** TableListPostAfter(外内奖金总额列表页，对积分无影响)
+
+
+header
+zhuoxikai
+endheader
+
+center footer zhuoxikai
+
+legend right
+  
+  
+endlegend
+@endmindmap
